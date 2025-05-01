@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌾 Crop Recommendation System</h1>
+        <form method="POST">
+            <label for="N">N (Nitrogen):</label>
+            <input type="text" id="N" name="N" required>
+
+            <label for="P">P (Phosphorus):</label>
+            <input type="text" id="P" name="P" required>
+
+            <label for="K">K (Potassium):</label>
+            <input type="text" id="K" name="K" required>
+
+            <label for="temperature">Temperature (°C):</label>
+            <input type="text" id="temperature" name="temperature" required>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="text" id="humidity" name="humidity" required>
+
+            <label for="ph">pH:</label>
+            <input type="text" id="ph" name="ph" required>
+
+            <label for="rainfall">Rainfall (mm):</label>
+            <input type="text" id="rainfall" name="rainfall" required>
+
+            <button type="submit">Get Recommendation</button>
+        </form>
+
+        {% if recommended_crop %}
+            <h2>✅ Recommended Crop: {{ recommended_crop }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
